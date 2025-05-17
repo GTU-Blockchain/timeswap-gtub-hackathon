@@ -1,7 +1,11 @@
-import React from "react";
+import Navbar from "../components/Navbar";
 
 function Home() {
-    return <div>Home</div>;
+    return (
+        <div className="bg-[var] ">
+            <Navbar /> 
+        </div>
+    );
 }
 
 export default Home;
