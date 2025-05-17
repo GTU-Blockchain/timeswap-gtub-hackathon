@@ -2,7 +2,14 @@
 
 :root {
     --color-primary: #800080;
-    --color-secondary: #3a263a;
-    --color-background: #181117;
-    --color-placeholder: #c889c9;
+
+    
+    --color-secondary-dark: #3a263a;
+    --color-background-dark: #181117;
+    --color-placeholder-dark: #c889c9;
+
+    --color-secondary: #F5F0F5;
+    --color-background: white;
+    --color-placeholder: #8D5E8D;
+
 }
