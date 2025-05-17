@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+:root {
+    --color-primary: #800080;
+    --color-secondary: #3a263a;
+    --color-background: #181117;
+    --color-placeholder: #c889c9;
+}
