@@ -4,6 +4,7 @@ function Home() {
     return (
         <div className="bg-[var] ">
             <Navbar /> 
+            
         </div>
     );
 }
