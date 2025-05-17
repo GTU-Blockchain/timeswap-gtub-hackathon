@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./App.css";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 function App() {
     return (
         <>
-            <h1>hello world</h1>
+            <ConnectButton />
         </>
     );
 }

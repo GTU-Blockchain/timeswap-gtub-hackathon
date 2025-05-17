@@ -8,14 +8,12 @@ import { config } from "./config";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { WagmiProvider } from "wagmi";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { rootstock, rootstockTestnet } from "wagmi/chains";
 
 const queryClient = new QueryClient();
-import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-const config = getDefaultConfig({
-    appName: "TimeSwap",
+const rainbowConfig = getDefaultConfig({
+    appName: "timeswap",
+    projectId: "c73b126570d8a919fedee590ebc4d109",
     chains: [rootstock, rootstockTestnet],
 });
 
