@@ -17,7 +17,7 @@ function App() {
                     <Route path="/new-services" element={<NewServices />} />
                     <Route path="/time-bank" element={<TimeBank />} />
                     <Route path="/explore/" element={<Explore />} />
-                    <Route path="/explore/:id" element={<Details />} />
+                    <Route path="/skill/:id" element={<Details />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
