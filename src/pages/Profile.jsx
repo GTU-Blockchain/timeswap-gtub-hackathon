@@ -70,7 +70,7 @@ const Profile = () => {
             <img
               src={profilePhoto}
               alt="Profile"
-              className="w-25 h-25 rounded-full"
+              className="w-25 h-25 rounded-full object-cover"
             />
             <div>
               <h2 className="text-2xl font-semibold">Acme Inc.</h2>
@@ -117,13 +117,13 @@ const Profile = () => {
                 <img
                   src={service.img}
                   alt="Service Photo"
-                  className="w-15 h-15 rounded-lg"
+                  className="w-15 h-15 rounded-lg object-cover"
                 />
                 <div className="flex-1">
                   <div className="dark:text-white">{service.title}</div>
                   <div className="text-slate-400 text-sm">{service.hours}</div>
                 </div>
-                <button className="text-slate-400 hover:text-slate-900 hover:cursor-pointer">
+                <button className="text-slate-400 hover:text-slate-900 dark:hover:text-[var(--color-placeholder-dark)] hover:cursor-pointer transition-all duration-200 hover:scale-105">
                   <svg
                     width="20"
                     height="20"
@@ -152,7 +152,7 @@ const Profile = () => {
                 <img
                   src={trade.img}
                   alt="Trade Photo"
-                  className="w-15 h-15 rounded-lg"
+                  className="w-15 h-15 rounded-lg object-cover"
                 />
                 <div className="flex-1">
                   <div className="dark:text-white">{trade.title}</div>
