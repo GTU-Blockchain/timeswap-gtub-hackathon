@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
     return (
         <>
-            <BrowserRouter>
+            <BrowserRouter basename="/timeswap-gtub-hackathon">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/profile" element={<Profile />} />
