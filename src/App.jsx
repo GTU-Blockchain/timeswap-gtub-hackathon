@@ -20,7 +20,7 @@ function App() {
                     <Route path="/explore/" element={<Explore />} />
                     <Route path="/explore/:id" element={<Details />} />
                     <Route path="/profile-comment" element={<ProfileComment />} />
-
+                    <Route path="/skill/:id" element={<Details />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
