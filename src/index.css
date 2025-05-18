@@ -11,3 +11,7 @@
     --color-background: white;
     --color-placeholder: #8d5e8d;
 }
+
+* {
+    font-family: "Space Grotesk";
+}
