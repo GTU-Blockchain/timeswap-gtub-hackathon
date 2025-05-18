@@ -193,6 +193,14 @@ contract TimeSwap is ReentrancyGuard, Ownable {
         emit ReputationUpdated(trade.seller, sellerProfile.reputation);
     }
 
+    function getServices() external view returns (Service[] memory) {
+        Service[] memory allServices = new Service[](serviceCounter);
+        for (uint256 i = 0; i < serviceCounter; i++) {
+            allServices[i] = services[i];
+        }
+        return allServices;
+    }
+
     // View Functions
     function getUserServices(
         address _user
