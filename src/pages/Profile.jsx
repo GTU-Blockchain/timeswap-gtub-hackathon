@@ -42,7 +42,7 @@ const Profile = () => {
         {/* Stats */}
         <div className="flex gap-6 mb-8">
           {stats.map((stat) => (
-            <div key={stat.label} className="flex-1 bg-transparent border border-slate-300 rounded-xl px-6 py-4 flex flex-col items-begin hover:cursor-pointer hover:scale-105 transition-transform duration-200">
+            <div key={stat.label} className="flex-1 bg-transparent border border-slate-300 rounded-xl px-6 py-4 flex flex-col items-start hover:cursor-pointer hover:scale-105 transition-transform duration-200">
               <span className="dark:text-white text-xl font-bold">{stat.value}</span>
               <span className="dark:text-white text-slate-400 text-xs mt-1">{stat.label}</span>
             </div>
