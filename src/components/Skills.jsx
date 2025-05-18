@@ -1,13 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Skills = () => {
-  //    Hard codded, soon to be changed
-  const skills = [
-    { name: "Python Programming", hours: 1000, reputation: 5.0 },
-    { name: "Product Design", hours: 200, reputation: 4.9 },
-    { name: "Mentorship", hours: 500, reputation: 4.8 },
-    { name: "Marketing", hours: 300, reputation: 4.7 },
-  ];
+const Skills = ({ skills }) => {
+    const navigate = useNavigate();
 
   return (
     <div>

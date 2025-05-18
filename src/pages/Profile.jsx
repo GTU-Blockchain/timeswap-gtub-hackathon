@@ -81,6 +81,9 @@ const Profile = () => {
           </div>
           <div className="flex gap-3">
             <button className="bg-[var(--color-secondary)] dark:bg-[var(--color-secondary-dark)] text-black dark:text-white px-4 py-2 rounded-lg font-medium hover:cursor-pointer hover:scale-105 transition-transform duration-200">
+              Comment
+            </button>
+            <button className="bg-[var(--color-secondary)] dark:bg-[var(--color-secondary-dark)] text-black dark:text-white px-4 py-2 rounded-lg font-medium hover:cursor-pointer hover:scale-105 transition-transform duration-200">
               Edit profile
             </button>
             <button className="bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg font-medium hover:cursor-pointer hover:scale-105 transition-transform duration-200">

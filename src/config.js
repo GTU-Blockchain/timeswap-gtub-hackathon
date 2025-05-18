@@ -8,3 +8,5 @@ export const config = createConfig({
         [rootstock.id]: http(),
     },
 });
+
+export const contractAddress = "0xEe3849bB6C0EB5bEb5149dd3b46d886278054CB9";
