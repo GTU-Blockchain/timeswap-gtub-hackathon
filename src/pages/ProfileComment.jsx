@@ -13,6 +13,18 @@ const ProfileComment = () => {
   const [userRating, setUserRating] = useState(0);
   // for hover rating
   const [hoverRating, setHoverRating] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+
+  // Form data states
+  const [feedback, setFeedback] = useState("");
+  const [confirmTrade, setConfirmTrade] = useState(false);
+  const [confirmHonest, setConfirmHonest] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (userRating === 0) return;
+    setSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen w-full dark:bg-[var(--color-background-dark)] bg-white flex items-center justify-center py-10">
@@ -43,9 +55,9 @@ const ProfileComment = () => {
           {ratingStats.map((r) => (
             <div key={r.star} className="flex items-center mb-2">
               <span className="w-5">{r.star}</span>
-              <div className="bg-[var(--color-placeholder-dark)] rounded h-2 w-80 mx-2 overflow-hidden">
+              <div className="bg-[var(--color-secondary)] rounded h-2 w-80 mx-2 overflow-hidden">
                 <div
-                  className="bg-[var(--color-secondary)] h-2"
+                  className="bg-[var(--color-placeholder-dark)] h-2"
                   style={{ width: `${r.percent}%` }}
                 />
               </div>
@@ -55,7 +67,7 @@ const ProfileComment = () => {
         </div>
 
         {/* Feedback Form */}
-        <div className="mt-12">
+        <form className="mt-12" onSubmit={handleSubmit}>
           <div className="font-bold text-xl mb-2">
             Leave feedback for Mehmet
           </div>
@@ -70,9 +82,10 @@ const ProfileComment = () => {
                 key={star}
                 type="button"
                 className="focus:outline-none"
-                onClick={() => setUserRating(star)}
-                onMouseEnter={() => setHoverRating(star)}
-                onMouseLeave={() => setHoverRating(0)}
+                onClick={() => !submitted && setUserRating(star)}
+                onMouseEnter={() => !submitted && setHoverRating(star)}
+                onMouseLeave={() => !submitted && setHoverRating(0)}
+                disabled={submitted}
               >
                 <span
                   className={
@@ -96,6 +109,10 @@ const ProfileComment = () => {
             <textarea
               placeholder="Write your feedback here..."
               className="w-full min-h-25 bg-[var(--color-secondary)] dark:bg-[var(--color-secondary-dark)] border-none rounded-xl dark:text-white p-4 text-sm mb-2 resize-y focus:outline-none"
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+              disabled={submitted}
+              required
             />
           </div>
 
@@ -105,6 +122,10 @@ const ProfileComment = () => {
               <input
                 type="checkbox"
                 className="accent-[var(--color-primary)] w-4 h-4"
+                checked={confirmTrade}
+                onChange={(e) => setConfirmTrade(e.target.checked)}
+                disabled={submitted}
+                required
               />
               <span className="text-md">
                 I confirm that I have completed a trade with this user
@@ -114,13 +135,36 @@ const ProfileComment = () => {
               <input
                 type="checkbox"
                 className="accent-[var(--color-primary)] w-4 h-4"
+                checked={confirmHonest}
+                onChange={(e) => setConfirmHonest(e.target.checked)}
+                disabled={submitted}
+                required
               />
               <span className="text-sm">
                 I confirm that this feedback is fair and honest
               </span>
             </label>
           </div>
-        </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className={`mt-6 px-8 py-3 rounded-xl font-bold text-white bg-[var(--color-primary)] hover:cursor-pointer transition ${
+              submitted
+                ? "opacity-60 cursor-not-allowed"
+                : "hover:bg-purple-700"
+            }`}
+            disabled={submitted}
+          >
+            {submitted ? "Feedback Submitted" : "Submit"}
+          </button>
+          
+          {!submitted && userRating === 0 && (
+            <div className="text-red-500 mt-3 text-sm font-semibold">
+              Please select a star rating.
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );
