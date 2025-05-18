@@ -16,7 +16,7 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <li
             key={index}
-            className="flex justify-between items-center hover:bg-[var(--color-secondary-dark)] transition-colors duration-200 p-4 rounded-xl"
+            className="flex justify-between items-center dark:hover:bg-[var(--color-secondary-dark)] hover:bg-[var(--color-secondary)] transition-colors duration-200 p-4 rounded-xl"
           >
             <div className="flex items-center justify-center">
               <img
@@ -30,7 +30,7 @@ const Skills = () => {
                 </div>
               </div>
             </div>
-            <button className="bg-[var(--color-primary)] px-4 py-2 rounded-md text-sm">
+            <button className="bg-[var(--color-primary)] px-4 py-2 rounded-md text-sm font-bold text-white">
               Trade
             </button>
           </li>

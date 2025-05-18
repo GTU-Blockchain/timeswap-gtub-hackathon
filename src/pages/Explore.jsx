@@ -21,7 +21,7 @@ const Explore = () => {
   const [selectedPage, setSelectedPage] = useState("Skills");
 
   return (
-    <section className="grid grid-cols-4 bg-[var(--color-background-dark)] text-white h-screen">
+    <section className="grid grid-cols-4 dark:bg-[var(--color-background-dark)] bg-white dark:text-white text-black h-screen">
       {/* Sidebar */}
       <div className="col-span-1 h-full flex flex-col px-6 py-8 space-y-6">
         <Link
@@ -33,8 +33,8 @@ const Explore = () => {
         <div
           className={`px-4 py-2 rounded-md cursor-pointer  ${
             selectedPage === "Profile"
-              ? "bg-[var(--color-secondary-dark)] "
-              : "hover:bg-purple-900/20 transition-colors duration-200"
+              ? "dark:bg-[var(--color-secondary-dark)] hover:bg-purple-100"
+              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
           }`}
           onClick={() => setSelectedPage("Profile")}
         >
@@ -43,8 +43,8 @@ const Explore = () => {
         <div
           className={`px-4 py-2 rounded-md cursor-pointer  ${
             selectedPage === "Skills"
-              ? "bg-[var(--color-secondary-dark)] "
-              : "hover:bg-purple-900/20 transition-colors duration-200"
+              ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
+              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
           }`}
           onClick={() => setSelectedPage("Skills")}
         >
@@ -53,8 +53,8 @@ const Explore = () => {
         <div
           className={`px-4 py-2 rounded-md cursor-pointer ${
             selectedPage === "Timebank"
-              ? "bg-[var(--color-secondary-dark)] "
-              : "hover:bg-purple-900/20 transition-colors duration-200"
+              ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
+              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
           }`}
           onClick={() => setSelectedPage("Timebank")}
         >
@@ -63,8 +63,8 @@ const Explore = () => {
         <div
           className={`px-4 py-2 rounded-md cursor-pointer ${
             selectedPage === "Settings"
-              ? "bg-[var(--color-secondary-dark)] "
-              : "hover:bg-purple-900/20 transition-colors duration-200"
+              ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
+              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
           }`}
           onClick={() => setSelectedPage("Settings")}
         >
@@ -75,19 +75,19 @@ const Explore = () => {
       {/* Main Content */}
       <div className="col-span-3 h-full px-12 py-8 overflow-auto">
         <h1 className="text-3xl font-semibold mb-1">Find a skill</h1>
-        <p className="text-sm text-gray-300 mb-6">
+        <p className="text-sm dark:text-gray-300 text-gray-700 mb-6">
           Browse available skills and hours
         </p>
 
         {/* Categories */}
-        <div className="flex flex-wrap gap-3 mb-8">
+        <div className="flex flex-wrap gap-3 mb-8 text-black dark:text-white">
           {categories.map((cat) => (
             <button
               key={cat}
               className={`px-4 py-2 rounded-xl text-sm ${
                 selectedCategory === cat
-                  ? "bg-[var(--color-primary)] "
-                  : "bg-[var(--color-secondary-dark)] hover:bg-purple-900/20 transition-all duration-200 hover:-translate-y-0.5"
+                  ? "bg-[var(--color-primary)] text-white"
+                  : "dark:bg-[var(--color-secondary-dark)] bg-[var(--color-secondary)] hover:bg-purple-900/20 transition-all duration-200 hover:-translate-y-0.5"
               }`}
               onClick={() =>
                 setSelectedCategory(selectedCategory === cat ? "All" : cat)
