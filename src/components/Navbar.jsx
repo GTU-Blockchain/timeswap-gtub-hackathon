@@ -40,7 +40,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to={`/trades/${account.address}`}
+              to={`/profile/${account.address}`}
               className="rounded-xl bg-[var(--color-primary)] px-4 py-2 hover:-translate-y-0.5 transition-all active:scale-[0.97] duration-100 hover:text-[var(--color-placeholder-dark)] hover:scale-[1.03] text-white"
             >
               My Trades

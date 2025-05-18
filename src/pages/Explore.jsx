@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Skills from "../components/Skills";
+import { useAccount } from "wagmi";
 
 const categories = [
   "All",
@@ -19,6 +20,7 @@ const categories = [
 const Explore = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPage, setSelectedPage] = useState("Skills");
+  const account = useAccount();
 
   return (
     <section className="grid grid-cols-4 dark:bg-[var(--color-background-dark)] bg-white dark:text-white text-black h-screen">
@@ -30,16 +32,18 @@ const Explore = () => {
         >
           TimeSwap
         </Link>
-        <div
-          className={`px-4 py-2 rounded-md cursor-pointer  ${
-            selectedPage === "Profile"
-              ? "dark:bg-[var(--color-secondary-dark)] hover:bg-purple-100"
-              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
-          }`}
-          onClick={() => setSelectedPage("Profile")}
-        >
-          Profile
-        </div>
+        <Link to={`/profile/${account.address}`}>
+          <div
+            className={`px-4 py-2 rounded-md cursor-pointer  ${
+              selectedPage === "Profile"
+                ? "dark:bg-[var(--color-secondary-dark)] hover:bg-purple-100"
+                : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
+            }`}
+            onClick={() => setSelectedPage("Profile")}
+          >
+            Profile
+          </div>
+        </Link>
         <div
           className={`px-4 py-2 rounded-md cursor-pointer  ${
             selectedPage === "Skills"
