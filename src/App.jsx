@@ -5,6 +5,7 @@ import NewServices from "./pages/NewServices";
 import TimeBank from "./pages/TimeBank";
 import Explore from "./pages/Explore";
 import NotFound from "./pages/NotFound";
+import Details from "./pages/Details";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/new-services" element={<NewServices />} />
                     <Route path="/time-bank" element={<TimeBank />} />
                     <Route path="/explore/" element={<Explore />} />
+                    <Route path="/explore/:id" element={<Details />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
