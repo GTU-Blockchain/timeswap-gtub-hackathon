@@ -121,7 +121,7 @@ function Home() {
           </p>
           {account.isConnected ? (
             <Link
-              to={"/"}
+              to={"/explore"}
               className="rounded-xl bg-[var(--color-primary)] px-6 py-3 hover:scale-[1.03] transition-all active:scale-[0.97] duration-100 font-semibold"
             >
               Explore

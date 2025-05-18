@@ -1,11 +1,6 @@
 import { useState } from "react";
-
-const skills = [
-  { name: "Python Programming", hours: 1000, reputation: 5.0 },
-  { name: "Product Design", hours: 200, reputation: 4.9 },
-  { name: "Mentorship", hours: 500, reputation: 4.8 },
-  { name: "Marketing", hours: 300, reputation: 4.7 },
-];
+import { Link } from "react-router-dom";
+import Skills from "../components/Skills";
 
 const categories = [
   "All",
@@ -26,13 +21,30 @@ const Explore = () => {
   const [selectedPage, setSelectedPage] = useState("Skills");
 
   return (
-    <section className="grid grid-cols-4 bg-[var(--color-background-dark)] text-white h-screen font-sans">
+    <section className="grid grid-cols-4 bg-[var(--color-background-dark)] text-white h-screen">
       {/* Sidebar */}
       <div className="col-span-1 h-full flex flex-col px-6 py-8 space-y-6">
-        <div className="text-xl font-semibold">Profile</div>
+        <Link
+          to={"/"}
+          className="text-2xl font-bold decoration-[var(--color-primary)] underline decoration-4"
+        >
+          TimeSwap
+        </Link>
         <div
-          className={`px-4 py-2 rounded-md cursor-pointer ${
-            selectedPage === "Skills" ? "bg-purple-800" : ""
+          className={`px-4 py-2 rounded-md cursor-pointer  ${
+            selectedPage === "Profile"
+              ? "bg-[var(--color-secondary-dark)] "
+              : "hover:bg-purple-900/20 transition-colors duration-200"
+          }`}
+          onClick={() => setSelectedPage("Profile")}
+        >
+          Profile
+        </div>
+        <div
+          className={`px-4 py-2 rounded-md cursor-pointer  ${
+            selectedPage === "Skills"
+              ? "bg-[var(--color-secondary-dark)] "
+              : "hover:bg-purple-900/20 transition-colors duration-200"
           }`}
           onClick={() => setSelectedPage("Skills")}
         >
@@ -40,7 +52,9 @@ const Explore = () => {
         </div>
         <div
           className={`px-4 py-2 rounded-md cursor-pointer ${
-            selectedPage === "Timebank" ? "bg-purple-800" : ""
+            selectedPage === "Timebank"
+              ? "bg-[var(--color-secondary-dark)] "
+              : "hover:bg-purple-900/20 transition-colors duration-200"
           }`}
           onClick={() => setSelectedPage("Timebank")}
         >
@@ -48,7 +62,9 @@ const Explore = () => {
         </div>
         <div
           className={`px-4 py-2 rounded-md cursor-pointer ${
-            selectedPage === "Settings" ? "bg-purple-800" : ""
+            selectedPage === "Settings"
+              ? "bg-[var(--color-secondary-dark)] "
+              : "hover:bg-purple-900/20 transition-colors duration-200"
           }`}
           onClick={() => setSelectedPage("Settings")}
         >
@@ -68,10 +84,10 @@ const Explore = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`px-4 py-2 rounded-full text-sm ${
+              className={`px-4 py-2 rounded-xl text-sm ${
                 selectedCategory === cat
-                  ? "bg-purple-800"
-                  : "bg-purple-900 hover:bg-purple-700"
+                  ? "bg-[var(--color-primary)] "
+                  : "bg-[var(--color-secondary-dark)] hover:bg-purple-900/20 transition-all duration-200 hover:-translate-y-0.5"
               }`}
               onClick={() =>
                 setSelectedCategory(selectedCategory === cat ? "All" : cat)
@@ -82,29 +98,7 @@ const Explore = () => {
           ))}
         </div>
 
-        {/* Skills List */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Results</h2>
-          <ul className="space-y-4">
-            {skills.map((skill, index) => (
-              <li
-                key={index}
-                className="flex justify-between items-center bg-gray-800 p-4 rounded-md"
-              >
-                <div>
-                  <div className="font-semibold">{skill.name}</div>
-                  <div className="text-sm text-gray-400">
-                    {skill.hours} hours, {skill.reputation.toFixed(1)}{" "}
-                    reputation
-                  </div>
-                </div>
-                <button className="bg-purple-800 px-4 py-2 rounded-md text-sm">
-                  Trade
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {selectedPage === "Skills" && <Skills />}
       </div>
     </section>
   );
