@@ -8,6 +8,21 @@ const ratingStats = [
   { star: 1, percent: 0 },
 ];
 
+const initialComments = [
+  {
+    id: 1,
+    name: "Ayşe",
+    rating: 5,
+    text: "Çok iyi bir deneyimdi, teşekkürler!",
+  },
+  {
+    id: 2,
+    name: "John",
+    rating: 4,
+    text: "Zamanında ve ilgiliydi.",
+  },
+];
+
 const ProfileComment = () => {
   // point to the user rating
   const [userRating, setUserRating] = useState(0);
@@ -20,10 +35,23 @@ const ProfileComment = () => {
   const [confirmTrade, setConfirmTrade] = useState(false);
   const [confirmHonest, setConfirmHonest] = useState(false);
 
+  // Comments state
+  const [comments, setComments] = useState(initialComments);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (userRating === 0) return;
     setSubmitted(true);
+    // Yeni yorumu ekle
+    setComments([
+      {
+        id: Date.now(),
+        name: "You",
+        rating: userRating,
+        text: feedback,
+      },
+      ...comments,
+    ]);
   };
 
   return (
@@ -66,8 +94,34 @@ const ProfileComment = () => {
           ))}
         </div>
 
+        {/* Comments */}
+        {comments.length > 0 && (
+          <div className="mb-10">
+            <div className="font-bold text-xl mb-4">Comments</div>
+            <div className="flex flex-wrap gap-4">
+              {comments.map((c) => (
+                <div
+                  key={c.id}
+                  className="bg-[var(--color-secondary)] dark:bg-[var(--color-secondary-dark)] dark:text-white rounded-xl p-5 min-w-70 max-w-xs shadow-md"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="font-semibold">{c.name}</span>
+                    <span className="text-yellow-400">
+                      {"★".repeat(c.rating)}
+                      <span className="text-gray-400">
+                        {"★".repeat(5 - c.rating)}
+                      </span>
+                    </span>
+                  </div>
+                  <div className="text-sm text-slate-500">{c.text}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Feedback Form */}
-        <form className="mt-12" onSubmit={handleSubmit}>
+        <form className="mt-15" onSubmit={handleSubmit}>
           <div className="font-bold text-xl mb-2">
             Leave feedback for Mehmet
           </div>
