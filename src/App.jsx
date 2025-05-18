@@ -3,7 +3,8 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import NewServices from "./pages/NewServices";
 import TimeBank from "./pages/TimeBank";
-import "./App.css";
+import Explore from "./pages/Explore";
+import NotFound from "./pages/NotFound";
 
 function App() {
     return (
