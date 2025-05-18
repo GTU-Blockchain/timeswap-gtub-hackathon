@@ -15,12 +15,15 @@ function App() {
             <BrowserRouter basename="/timeswap-gtub-hackathon">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/new-services" element={<NewServices />} />
-                    <Route path="/time-bank" element={<TimeBank />} />
+                    <Route path="/profile/:address" element={<Profile />} />
+                    <Route
+                        path="/profile/:address/comments"
+                        element={<ProfileComment />}
+                    />
+                    <Route path="/create" element={<NewServices />} />
+                    <Route path="/confirm" element={<TimeBank />} />
                     <Route path="/explore/" element={<Explore />} />
                     <Route path="/explore/:id" element={<Details />} />
-                    <Route path="/profile-comment" element={<ProfileComment />} />
                     <Route path="/skill/:id" element={<Details />} />
                     <Route path="/wallet/:address" element={<Wallet />} />
                     <Route path="*" element={<NotFound />} />
