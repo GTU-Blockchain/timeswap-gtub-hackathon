@@ -19,7 +19,7 @@ const queryClient = new QueryClient();
 const rainbowConfig = getDefaultConfig({
     appName: "timeswap",
     projectId: "c73b126570d8a919fedee590ebc4d109",
-    chains: [rootstock, rootstockTestnet],
+    chains: [rootstockTestnet, rootstock],
 });
 
 createRoot(document.getElementById("root")).render(
