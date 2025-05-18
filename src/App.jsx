@@ -6,6 +6,7 @@ import TimeBank from "./pages/TimeBank";
 import Explore from "./pages/Explore";
 import NotFound from "./pages/NotFound";
 import Details from "./pages/Details";
+import ProfileComment from "./pages/ProfileComment"; // temporarily added.
 
 function App() {
     return (
@@ -18,6 +19,8 @@ function App() {
                     <Route path="/time-bank" element={<TimeBank />} />
                     <Route path="/explore/" element={<Explore />} />
                     <Route path="/explore/:id" element={<Details />} />
+                    <Route path="/profile-comment" element={<ProfileComment />} />
+
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
