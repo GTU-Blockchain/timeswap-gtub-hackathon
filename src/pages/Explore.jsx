@@ -18,6 +18,7 @@ const categories = [
   "Music",
   "Video Production",
   "Photography",
+  "Other",
 ];
 
 const Explore = () => {
