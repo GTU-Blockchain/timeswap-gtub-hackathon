@@ -5,45 +5,29 @@ import LoadingScreen from "../components/LoadingScreen";
 import { useState } from "react";
 
 function Home() {
-  const account = useAccount();
-  const [isLoaded, setIsLoaded] = useState(false);
+    const account = useAccount();
+    const [isLoaded, setIsLoaded] = useState(false);
 
-  const howItWorks = [
-    {
-      title: "1. List your Devices",
-      paragraph:
-        "You can list any service, skill or time-based offering you'd like to trade. This can be anything from a 30 minute consultation to a 3 hour cooking class",
-    },
-    {
-      title: "2. Find people to swap time or skills with",
-      paragraph:
-        "You can search for people interested in swapping time or skills based on the services they offer, their availability, or the number of hours they'd like to swap",
-    },
-    {
-      title:
-        "3. Start a conversation and find a time that works for both of you.",
-      paragraph:
-        "Once you've found someone to swap time with, you can start a conversation in the chat and find a time that works for both of you.",
-    },
-  ];
+    const howItWorks = [
+        {
+            title: "1. List your Devices",
+            paragraph:
+                "You can list any service, skill or time-based offering you'd like to trade. This can be anything from a 30 minute consultation to a 3 hour cooking class",
+        },
+        {
+            title: "2. Find people to swap time or skills with",
+            paragraph:
+                "You can search for people interested in swapping time or skills based on the services they offer, their availability, or the number of hours they'd like to swap",
+        },
+        {
+            title: "3. Start a conversation and find a time that works for both of you.",
+            paragraph:
+                "Once you've found someone to swap time with, you can start a conversation in the chat and find a time that works for both of you.",
+        },
+    ];
 
-  return (
-    <>
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-      <main className="dark:bg-[var(--color-background-dark)] bg-white dark:text-white text-black min-h-screen pt-25 flex flex-col items-center space-y-10">
-        <Navbar />
-
-        <div className="relative mx-auto max-w-5xl w-full min-h-[35rem] bg-[url('/src/assets/hero-hourglass.jpeg')] bg-cover bg-center rounded-xl text-center flex flex-col items-center justify-center space-y-10">
-          <div className="text-shadow-black">
-            <h2 className="text-white text-6xl font-bold">
-              Welcome to TimeSwap
-            </h2>
-            <p className="text-white mt-4">
-              Swap time and skills with people all over the world. Join our
-              growing community of time bankers!
-            </p>
-          </div>
-
+    return (
+        <>
           {account.isConnected ? (
             <Link
               to={"/explore"}
