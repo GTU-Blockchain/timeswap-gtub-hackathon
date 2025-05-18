@@ -15,7 +15,7 @@ const LoadingScreen = ({ onComplete }) => {
       <p className="dark:text-white/60 text-black/60 text-lg font-medium mb-4">
         Please wait while we get things ready
       </p>
-      <div className="w-[200px] h-[2px] dark:bg-gray-800 bg-gray-200 rounded relative overflow-hidden">
+      <div className="w-[200px] h-3 dark:bg-gray-800 bg-gray-200 rounded relative overflow-hidden">
         <div className="w-[40%] h-full bg-[var(--color-primary)] shadow-[0_0_15px_#3b82f6] animate-loading-bar"></div>
       </div>
     </div>

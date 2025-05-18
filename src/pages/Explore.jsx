@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Skills from "../components/Skills";
+import { useAccount } from "wagmi";
 import { readContract } from "wagmi/actions";
 import TimeSwap from "../../artifacts/contracts/TimeSwap.sol/TimeSwap.json";
 import LoadingScreen from "../components/LoadingScreen";
@@ -22,6 +23,10 @@ const categories = [
 ];
 
 const Explore = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedPage, setSelectedPage] = useState("Skills");
+  const account = useAccount();
+ 
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [selectedPage, setSelectedPage] = useState("Skills");
     const [services, setServices] = useState([]);
@@ -51,55 +56,57 @@ const Explore = () => {
         <LoadingScreen onComplete={() => setIsLoading(false)} />
     ) : (
         <section className="grid grid-cols-4 dark:bg-[var(--color-background-dark)] bg-white dark:text-white text-black h-screen">
-            {/* Sidebar */}
-            <div className="col-span-1 h-full flex flex-col px-6 py-8 space-y-6">
-                <Link
-                    to={"/"}
-                    className="text-2xl font-bold decoration-[var(--color-primary)] underline decoration-4"
-                >
-                    TimeSwap
-                </Link>
-                <div
-                    className={`px-4 py-2 rounded-md cursor-pointer  ${
-                        selectedPage === "Profile"
-                            ? "dark:bg-[var(--color-secondary-dark)] hover:bg-purple-100"
-                            : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
-                    }`}
-                    onClick={() => setSelectedPage("Profile")}
-                >
-                    Profile
-                </div>
-                <div
-                    className={`px-4 py-2 rounded-md cursor-pointer  ${
-                        selectedPage === "Skills"
-                            ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
-                            : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
-                    }`}
-                    onClick={() => setSelectedPage("Skills")}
-                >
-                    Skills
-                </div>
-                <div
-                    className={`px-4 py-2 rounded-md cursor-pointer ${
-                        selectedPage === "Timebank"
-                            ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
-                            : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
-                    }`}
-                    onClick={() => setSelectedPage("Timebank")}
-                >
-                    Timebank
-                </div>
-                <div
-                    className={`px-4 py-2 rounded-md cursor-pointer ${
-                        selectedPage === "Settings"
-                            ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
-                            : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
-                    }`}
-                    onClick={() => setSelectedPage("Settings")}
-                >
-                    Settings
-                </div>
-            </div>
+      {/* Sidebar */}
+      <div className="col-span-1 h-full flex flex-col px-6 py-8 space-y-6">
+        <Link
+          to={"/"}
+          className="text-2xl font-bold decoration-[var(--color-primary)] underline decoration-4"
+        >
+          TimeSwap
+        </Link>
+        <Link to={`/profile/${account.address}`}>
+          <div
+            className={`px-4 py-2 rounded-md cursor-pointer  ${
+              selectedPage === "Profile"
+                ? "dark:bg-[var(--color-secondary-dark)] hover:bg-purple-100"
+                : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
+            }`}
+            onClick={() => setSelectedPage("Profile")}
+          >
+            Profile
+          </div>
+        </Link>
+        <div
+          className={`px-4 py-2 rounded-md cursor-pointer  ${
+            selectedPage === "Skills"
+              ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
+              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
+          }`}
+          onClick={() => setSelectedPage("Skills")}
+        >
+          Skills
+        </div>
+        <div
+          className={`px-4 py-2 rounded-md cursor-pointer ${
+            selectedPage === "Timebank"
+              ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
+              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
+          }`}
+          onClick={() => setSelectedPage("Timebank")}
+        >
+          Timebank
+        </div>
+        <div
+          className={`px-4 py-2 rounded-md cursor-pointer ${
+            selectedPage === "Settings"
+              ? "dark:bg-[var(--color-secondary-dark)] bg-purple-100"
+              : "dark:hover:bg-purple-900/20 hover:bg-purple-100 transition-colors duration-200"
+          }`}
+          onClick={() => setSelectedPage("Settings")}
+        >
+          Settings
+        </div>
+      </div>
 
             {/* Main Content */}
             <div className="col-span-3 h-full px-12 py-8 overflow-auto">
