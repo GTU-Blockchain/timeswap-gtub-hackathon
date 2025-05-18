@@ -7,10 +7,10 @@ const Navbar = () => {
   const account = useAccount();
 
   return (
-    <nav className="fixed top-0 dark:bg-[var(--color-background-dark)] bg-white h-16 w-full flex justify-between px-10 border-b border-px border-[#291E27] font-bold z-40">
+    <nav className="fixed top-0 dark:bg-[var(--color-background-dark)] bg-white h-16 w-full flex justify-between px-10 border-b-neutral-900/50 border-transparent border-2 font-bold z-40">
       <Link
         to={"/"}
-        className="text-2xl font-bold decoration-[var(--color-primary)] underline decoration-4 flex items-center pl-6"
+        className="text-2xl font-bold decoration-[var(--color-primary)] underline decoration-4 flex items-center pl-6 text-black dark:text-white"
       >
         TimeSwap
       </Link>

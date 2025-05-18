@@ -30,7 +30,7 @@ const Skills = () => {
                 </div>
               </div>
             </div>
-            <button className="bg-[var(--color-primary)] px-4 py-2 rounded-md text-sm font-bold text-white">
+            <button className="bg-[var(--color-primary)] px-6 py-3 hover:scale-[1.03] transition-all active:scale-[0.97] duration-100 font-semibold text-white rounded-xl">
               Trade
             </button>
           </li>
